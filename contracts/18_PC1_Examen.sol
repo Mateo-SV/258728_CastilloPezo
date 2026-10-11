@@ -17,4 +17,17 @@ contract Biblioteca258728 {
         posicion = _posicion;
         direccion = msg.sender;
     }
+
+    function agregarElemento(uint256 _id, string memory _titulo, string memory _autor, uint256 _anio) public {
+        require(_id % 2 == 0, "No se permiten id impares");
+        libros.push(Libro(_id, _titulo, _autor, _anio));
+    }
+
+    function contarElementos() public view returns (uint256) {
+        return libros.length;
+    }
+
+    function cambiarDireccion(address _direccion) public {
+        direccion = _direccion;
+    }
 }
